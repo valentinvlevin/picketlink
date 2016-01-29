@@ -30,27 +30,27 @@ angular.module('PicketLinkSecurityModule', ['ngResource', 'ngRoute']).config(
             }
         });
     } ])
-    .factory('SessionResource', ['$resource', 'restBaseUrl', function($resource, restBaseUrl) {
-        return $resource(restBaseUrl + 'rest/:dest', {}, {
+    .factory('SessionResource', ['$resource', function($resource) {
+        return $resource('rest/:dest', {}, {
             login: {method: 'POST', params: {dest:"authc"}},
             logout: {method: 'POST', params: {dest:"logout"}}
         });
     }])
-     .factory('AdminResource', ['$resource', 'restBaseUrl', function($resource, restBaseUrl) {
-        return $resource(restBaseUrl + 'rest/admin/:dest', {}, {
+     .factory('AdminResource', ['$resource', function($resource) {
+        return $resource('rest/admin/:dest', {}, {
             enableAccount: {method: 'POST', params: {dest:"enableAccount"}},
             disableAccount: {method: 'POST', params: {dest:"disableAccount"}}
         });
     }])
-    .factory('UsersResource', ['$resource', 'restBaseUrl', function($resource, restBaseUrl) {
-        return $resource(restBaseUrl + 'rest/users/:dest', {}, {});
+    .factory('UsersResource', ['$resource', function($resource) {
+        return $resource('rest/users/:dest', {}, {});
     }])
-    .factory('RegistrationResource', ['$resource', 'restBaseUrl', function($resource, restBaseUrl) {
-        return $resource(restBaseUrl + 'rest/register/:dest', {}, {
+    .factory('RegistrationResource', ['$resource', function($resource) {
+        return $resource('rest/register/:dest', {}, {
             activation: {method: 'POST', params: {dest:"activation"}}
         });
     }])
-    .factory('SecurityService', ['$resource', 'restBaseUrl', function($resource, restBaseUrl) {
+    .factory('SecurityService', ['$rootScope', function($rootScope) {
 
         var SecurityService = function() {
             this.initSession = function(response) {

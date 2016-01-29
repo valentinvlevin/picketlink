@@ -44,18 +44,19 @@ var appModule = angular.module('PLAngular',
 		redirectTo : 'login'
 	    });
 	} ])
-  .factory('authHttpResponseInterceptor', ['$q', '$rootScope', '$location', 'SecurityService', 'MessageService', function($q, $rootScope, $location, SecurityService, MessageService) {
+  .factory('authHttpResponseInterceptor', ['$q', '$rootScope', '$location', 'SecurityService', 'MessageService',
+    function($q, $rootScope, $location, SecurityService, MessageService) {
 	    return {
-		'request' : function(config) {
-		    SecurityService.secureRequest(config);
-		    return config || $q.when(config);
-		},
+                'request' : function(config) {
+                    SecurityService.secureRequest(config);
+                    return config || $q.when(config);
+                },
 
-		'response' : function(response) {
-		    return response || $q.when(response);
-		},
-		
-		'responseError' : function(rejection) {
+                'response' : function(response) {
+                    return response || $q.when(response);
+                },
+
+                'responseError' : function(rejection) {
                     console.log("Server Response Status: " + rejection.status);
                     console.log(rejection);
     
@@ -81,11 +82,11 @@ var appModule = angular.module('PLAngular',
 		}
 	    }
 	} ])
-  /*.config([ '$httpProvider', function($httpProvider) {
+  .config([ '$httpProvider', function($httpProvider) {
             //Http Intercpetor to check auth failures for xhr requests
             $httpProvider.interceptors.push('authHttpResponseInterceptor');
         } ])
-   */
+
   .run(function($rootScope, $location, MessageService) {
 
             // register listener to watch route changes
@@ -104,5 +105,3 @@ appModule.controller('MessageCtrl', function(MessageService, $scope) {
     };
     
 });
-
-appModule.constant('restBaseUrl', 'https://localhost:18443/picketlink/');
