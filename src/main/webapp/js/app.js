@@ -105,4 +105,4 @@ appModule.controller('MessageCtrl', function(MessageService, $scope) {
     
 });
 
-appModule.constant('restBaseUrl', 'http://localhost:18443/picketlink/');
+appModule.constant('restBaseUrl', 'https://localhost:18443/picketlink/');

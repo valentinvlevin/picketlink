@@ -107,18 +107,18 @@ public class SecurityConfiguration {
     }
 
     private byte[] getPrivateKey() throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException {
-        return getKeyStore().getKey("servercert", "test123".toCharArray()).getEncoded();
+        return getKeyStore().getKey("keystore", "123456".toCharArray()).getEncoded();
     }
 
     private byte[] getPublicKey() throws KeyStoreException {
-        return getKeyStore().getCertificate("servercert").getPublicKey().getEncoded();
+        return getKeyStore().getCertificate("keystore").getPublicKey().getEncoded();
     }
 
     private KeyStore getKeyStore() {
         if (this.keyStore == null) {
             try {
                 this.keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                getKeyStore().load(getClass().getResourceAsStream(KEYSTORE_FILE_PATH), "store123".toCharArray());
+                getKeyStore().load(getClass().getResourceAsStream(KEYSTORE_FILE_PATH), "keystore".toCharArray());
             } catch (Exception e) {
                 throw new SecurityException("Could not load key store.", e);
             }
