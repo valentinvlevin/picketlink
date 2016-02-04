@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.picketlink:picketlink:2.7.1.Final">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/picketlink/picketlink/2.7.1.Final/picketlink-2.7.1.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/picketlink/picketlink/2.7.1.Final/picketlink-2.7.1.Final-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/picketlink/picketlink/2.7.1.Final/picketlink-2.7.1.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

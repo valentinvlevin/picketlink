@@ -43,20 +43,18 @@ var appModule = angular.module('PLAngular',
 	    }).otherwise({
 		redirectTo : 'login'
 	    });
-	} ])
-  .factory('authHttpResponseInterceptor', ['$q', '$rootScope', '$location', 'SecurityService', 'MessageService',
-    function($q, $rootScope, $location, SecurityService, MessageService) {
+	} ]).factory('authHttpResponseInterceptor', ['$q', '$rootScope', '$location', 'SecurityService', 'MessageService', function($q, $rootScope, $location, SecurityService, MessageService) {
 	    return {
-                'request' : function(config) {
-                    SecurityService.secureRequest(config);
-                    return config || $q.when(config);
-                },
+		'request' : function(config) {
+		    SecurityService.secureRequest(config);
+		    return config || $q.when(config);
+		},
 
-                'response' : function(response) {
-                    return response || $q.when(response);
-                },
-
-                'responseError' : function(rejection) {
+		'response' : function(response) {
+		    return response || $q.when(response);
+		},
+		
+		'responseError' : function(rejection) {
                     console.log("Server Response Status: " + rejection.status);
                     console.log(rejection);
     
@@ -70,6 +68,7 @@ var appModule = angular.module('PLAngular',
                         console.log("[INFO] Unauthorized response.");
                         SecurityService.endSession();
                         $location.path('/login');
+                        MessageService.setMessages(["Please, provide your credentials."]);
                     } else if (rejection.status == 400) {
                         console.log("[ERROR] Bad request response from the server.");
                     } else if (rejection.status == 500) {
@@ -81,13 +80,10 @@ var appModule = angular.module('PLAngular',
 		    return $q.reject(rejection);
 		}
 	    }
-	} ])
-  .config([ '$httpProvider', function($httpProvider) {
+	} ]).config([ '$httpProvider', function($httpProvider) {
             //Http Intercpetor to check auth failures for xhr requests
             $httpProvider.interceptors.push('authHttpResponseInterceptor');
-        } ])
-
-  .run(function($rootScope, $location, MessageService) {
+        } ]).run(function($rootScope, $location, MessageService) {
 
             // register listener to watch route changes
             $rootScope.$on("$routeChangeStart", function(event, next, current) {

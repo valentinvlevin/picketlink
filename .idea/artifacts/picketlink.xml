@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="picketlink">
+    <output-path>$PROJECT_DIR$/out/artifacts/</output-path>
+    <root id="archive" name="picketlink.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="picketlink" />
+          <element id="jpa-descriptors" facet="picketlink/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.50" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.50" />
+          <element id="library" level="project" name="Maven: org.picketlink:picketlink-idm-simple-schema:2.7.1.Final" />
+          <element id="library" level="project" name="Maven: org.picketlink:picketlink-json:2.7.1.Final" />
+          <element id="library" level="project" name="Maven: org.picketlink:picketlink:2.7.1.Final" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="picketlink/web/Web" />
+    </root>
+  </artifact>
+</component>

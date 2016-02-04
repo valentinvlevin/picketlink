@@ -14,12 +14,10 @@
 	xsi:schemaLocation="
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="primary" transaction-type="JTA">
+	<persistence-unit name="primary">
 		<jta-data-source>java:jboss/datasources/picketlink_2</jta-data-source>
 
-        <class>com.gr.project.model.Person</class>
 
-        <class>com.gr.project.security.model.entity.MyUserTypeEntity</class>
         <class>org.picketlink.idm.jpa.model.sample.simple.AttributedTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.RoleTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.GroupTypeEntity</class>
@@ -29,13 +27,15 @@
 		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
-        <class>com.gr.project.security.model.entity.TokenCredentialTypeEntity</class>
-		
+        <class>org.picketlink.idm.jpa.model.sample.simple.TokenCredentialTypeEntity</class>
+
+        <class>org.jboss.as.quickstarts.picketlink.angularjs.model.Person</class>
+        <class>org.jboss.as.quickstarts.picketlink.angularjs.security.model.entity.MyUserTypeEntity</class>
+
 		<properties>
-			<!-- Properties for Hibernate -->
-            <property name="hibernate-dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
-			<property name="hibernate.show_sql" value="false" />
+            <property name="hibernate-dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>

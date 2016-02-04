@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - picketlink_2@192.168.57.129" uuid="3ab9c03e-ab50-4618-8594-4d7ae9c1e91a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>picketlink_2.public</schema-pattern>
+      <default-schemas>picketlink_2.pg_catalog picketlink_2.public</default-schemas>
+    </data-source>
+  </component>
+</project>
